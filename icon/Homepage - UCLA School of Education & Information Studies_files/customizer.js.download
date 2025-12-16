@@ -1,0 +1,72 @@
+/* global wp, jQuery */
+/**
+ * File customizer.js.
+ *
+ * Theme Customizer enhancements for a better user experience.
+ *
+ * Contains handlers to make Theme Customizer preview reload changes asynchronously.
+ */
+
+(function ($) {
+  // Site title and description.
+  // wp.customize('blogname', function (value) {
+  //   value.bind(function (to) {
+  //     $('.site-title a').text(to);
+  //   });
+  // });
+  // wp.customize('blogdescription', function (value) {
+  //   value.bind(function (to) {
+  //     $('.site-description').text(to);
+  //   });
+  // });
+
+  // Header text color.
+  // wp.customize('header_textcolor', function (value) {
+  //   value.bind(function (to) {
+  //     if ('blank' === to) {
+  //       $('.site-title, .site-description').css({
+  //         clip: 'rect(1px, 1px, 1px, 1px)',
+  //         position: 'absolute',
+  //       });
+  //     } else {
+  //       $('.site-title, .site-description').css({
+  //         clip: 'auto',
+  //         position: 'relative',
+  //       });
+  //       $('.site-title a, .site-description').css({
+  //         color: to,
+  //       });
+  //     }
+  //   });
+  // });
+
+  // using the css animation framework: https://animate.style/
+  // enqueued from css/vendor folder
+  // Select all elements with the class 'animate'
+  const $animatedElements = $('.animate');
+
+  // Create a new Intersection Observer
+  const observer = new IntersectionObserver(
+    function (entries, observer) {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Get the animation type from the data attribute
+          // E.g. data-animation="fadeIn"
+          const animationType = $(entry.target).data('animation');
+          // Add the necessary classes to start the animation
+          $(entry.target).addClass(
+            `animate__animated animate__${animationType}`
+          );
+          // Disconnect the observer for this element
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  // Start observing all target elements
+  $animatedElements.each(function () {
+    observer.observe(this);
+  });
+})(jQuery);

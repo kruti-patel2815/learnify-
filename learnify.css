@@ -1,0 +1,301 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none !important;
+    list-style: none;
+}
+/* header start */
+.header-top{
+    background-color:#0d3761e6;
+    padding: 10px 0;
+   
+}
+.header-top .container .nav-1{
+    color:#fff;
+}
+.navbar .navbar-brand{
+    width: 20%;
+}
+.navbar .navbar-brand img{
+   width: 100%;
+}
+.navbar-nav .nav-item  a:hover{
+    color: #0d3761e6 !important;
+}
+
+.w-1140 {
+    width: 1140px;
+    margin: auto;
+}
+.button .btn:hover {
+    background-color: red !important;
+    color: #fff;
+    border: none;
+}
+.navbar-nav .nav-item .nav-link{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* header end */
+
+/* hero section start */
+.hero{
+    padding-top: 100px;
+    
+}
+
+/* hero section end */
+/* career section start */
+.career h3{
+    font-size: 40px;
+    margin-top: 50px;
+    font-family: "Poppins:ital" !important;
+    text-decoration: underline !important;
+    font-weight:bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.career img{
+    width: 100%;
+}
+.career .row .col-6 h4{
+    font-size: 15px;
+    padding-top: 40px;
+    font-weight: 400;
+    color: grey;
+}
+.career .c-2{
+    padding-top: 20px;
+}
+
+.career .row img{
+    margin-top: 50px;
+}
+/* career section end */
+
+/* course section start */
+.container .courses h3{
+    font-size: 40px;
+    margin-top: 50px;
+    font-family:"Poppins:ital" !important;
+    text-decoration: underline !important;
+    margin-bottom: 30px;
+    font-weight:bold;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.container .courses .row .col-3 img{
+    width: 100%;
+    box-shadow: 10px 10px 15px rgb(0 0 0/20%);
+    font-family: "Poppins:ital" !important;
+}
+
+.container .courses .row  img{
+    width: 100%;
+    font-family: "Poppins:ital"!important;
+    
+    
+}
+
+.container .courses .row  img{
+    width: 100%;
+    font-family: "Poppins:ital" !important;
+    height: 200px;
+   
+}
+.card .card-body a{
+    color: black;
+    font-family: "Poppins:ital" !important;
+
+}
+.card .card-body a:hover{
+    color:#0d3761e6;
+}
+/* course section end */
+
+/* portfolio section start */
+.container .portfolio h3{
+    font-size: 40px;
+    margin-top: 50px;
+    font-family:"Poppins:ital" !important;
+    text-decoration: underline !important;
+    margin-bottom: 30px;
+    font-weight:bold;
+    text-align: center;
+    
+}
+.container .portfolio .portfolio-img .row .col-4 img{
+    margin-top: 50px;
+    border-radius: 5px;
+    width: 100%;
+    height: 220px;
+    box-shadow: 10px 10px 20px rgb(0 0 0/20%);
+}
+
+/* portfolio section end */
+/* team section start */
+.container .team h3{
+    font-size: 40px;
+    margin-top: 50px;
+    font-family:"Poppins:ital" !important;
+    text-decoration: underline !important;
+    margin-bottom: 30px;
+    font-weight:bold;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.team .members .member-img {
+    margin: 0 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 4px solid rgb(229, 192, 45);
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.2);
+    height: 200px;
+}
+/* team section end */
+
+/* contact section start */
+.container .contact h3{
+    font-size: 40px;
+    margin-top: 50px;
+    font-family:"Poppins:ital" !important;
+    text-decoration: underline !important;
+    margin-bottom: 30px;
+    font-weight:bold;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.contact .row .info-item{
+    background-color: rgb(247, 247, 241);
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+.contact .row .info-item i{
+    font-size: 30px;
+    color: rgb(239, 46, 46);
+    padding: 10px;
+    
+}
+.contact .row .info-item h5{
+    font-size: 22px;
+    font-weight: bold;
+}
+.contact .row .info-item p{
+    font-size: 14px;
+    color: grey;
+    font-weight: 400;
+}
+/* contact section end */
+
+/* footer section start */
+
+.container .footer .footer-top .row .col-6 a img{
+    width: 45%;
+}
+.footer-color{
+
+    background-color:  rgb(247, 247, 241);
+}
+.footer-top{
+    padding-bottom: 50px;
+    padding-left: 80px;
+    padding-top: 80px;
+    margin-top: 100px;
+}
+.container .footer .footer-top .row .col-6 p{
+    margin-top: 30px;
+    font-size: 13px;
+    color: grey;
+}
+.container .footer .footer-top .row .col-6 i{
+    color: grey;
+    padding: 8px;
+    border: 1px solid grey;
+    border-radius: 50%;
+}
+.container .footer .footer-top .row .col-6 i:hover{
+    color:#0d3761e6 ;
+    border: 1px solid #0d3761e6;
+}
+.container .footer .footer-top .row .col-3{
+    padding-left: 50px;
+    padding-top: 40px;
+}
+.container .footer .footer-top .row .col-3 span{
+    font-size: 14px;
+    color: grey;
+    padding-top: 10px;
+}
+.container .footer .footer-top .row .col-3 span:hover{
+    color:  #0d3761e6;
+}
+.container .footer .footer-top .row .col-3 h2{
+    font-size: 17px;
+    font-weight: bold;
+
+}
+.container .footer .footer-top .row .col-3 p{
+    font-size: 14px;
+    color: grey;
+    padding-top: 10px;
+}
+.container .footer .footer-top .row .col-3 h1{
+    font-size: 14px;
+    font-weight: bold;
+}
+.container .footer .footer-top .row .col-3 h1 span{
+    font-size: 13px;
+    font-weight: 400;
+}
+.container .footer .footer-top .row .col-3 h5{
+    font-size: 14px;
+    font-weight: bold;
+}
+.container .footer .footer-top .row .col-3 h5 span{
+    font-size: 13px;
+    font-weight: 400;
+}
+.footer-bottom{
+   text-align: center;
+    height: 100px;
+    background-color:  rgb(236, 236, 228);
+    padding-top: 20px;
+}
+.footer-bottom p{
+    font-size: 13px;
+}
+.footer-bottom .credits{
+    font-size: 13px;
+}
+/* footer section end */
+
+
+
+
+.course-information{
+    padding-top: 200px;
+}
+.course-information img{
+    border-radius: 10px;
+   
+
+}
+.course-information .row{
+    margin: 50px 0px;
+}
+.course-information h4{
+    font-size: 25px;
+    font-weight: bold;
+    font-family: "Poppins:ital" !important;
+    padding-top: 20px;
+}
+.course-information p{
+    font-size: 18px;
+    font-weight: 400;
+    color: grey;
+    padding-left: 20px;
+}

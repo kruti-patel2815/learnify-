@@ -1,0 +1,144 @@
+/**
+ * File components.js.
+ *
+ * Adds js pieces...
+ *
+ */
+
+(function ($) {
+  // ***
+  // Staff
+  // ***
+  $('#search-submit').on('click', function () {
+    performSearch();
+  });
+
+  // Capture form submission event
+  $('#staff-filter-form').on('submit', function (e) {
+    e.preventDefault(); // Prevent the default form submission behavior
+    performSearch();
+  });
+
+  // Load all posts by default
+  performSearch();
+
+  function performSearch() {
+    var searchKeyword = $('#search-keyword').val();
+
+    $.ajax({
+      url: custom_ajax_obj.ajaxurl,
+      type: 'POST',
+      data: {
+        action: 'custom_ajax_search',
+        search_keyword: searchKeyword,
+      },
+      success: function (response) {
+        $('#staff-results').html(response);
+      },
+    });
+  }
+
+  // Load all posts by default
+  $('#search-submit').trigger('click');
+
+  // ***
+  // Faculty
+  // ***
+  var offset = 0;
+  var postsPerPage = 12;
+  var totalPosts = 0;
+  var isFetching = false; // Flag to prevent multiple simultaneous requests
+
+  function loadFaculty() {
+    if (isFetching) {
+      return;
+    }
+
+    isFetching = true;
+
+    var keyword = $('#search-keyword').val();
+    $.ajax({
+      type: 'GET', // Change the request type to GET
+      url: custom_ajax_obj.ajaxurl,
+      data: {
+        action: 'filter_faculty',
+        keyword: keyword,
+        offset: offset,
+      },
+      success: function (response) {
+        $('#faculty-results').append(response.html);
+        $('#faculty-actions').append(response.load_more);
+        isFetching = false;
+
+        // Update totalPosts with the received value
+        totalPosts = response.total_posts;
+
+        // Remove any existing "Load More" buttons
+        $('#load-more').remove();
+
+        // Check if there are more posts to load
+        if (offset + postsPerPage < totalPosts) {
+          // Add a new "Load More" button if there are more posts
+          if (!$('#load-more').length) {
+            $('#faculty-actions').append(
+              '<button id="load-more" class="ucla-btn ucla-btn--primary" data-offset="' +
+                (offset + postsPerPage) +
+                '">Load More</button>'
+            );
+          }
+        }
+      },
+    });
+  }
+
+  // Handle form submission
+  $('#faculty-filter-form').submit(function (e) {
+    e.preventDefault();
+    offset = 0;
+    $('#faculty-results').html(''); // Clear previous results
+    loadFaculty();
+
+    // Update the browser's URL with the search parameters
+    updateURL();
+  });
+
+  // Handle "Load More" button click
+  $(document).on('click', '#load-more', function () {
+    offset += postsPerPage;
+    loadFaculty();
+
+    // Update the browser's URL with the search parameters
+    updateURL();
+  });
+
+  // Function to update the browser's URL
+  function updateURL() {
+    var keyword = $('#search-keyword').val();
+    var newURL =
+      window.location.origin +
+      window.location.pathname +
+      '?keyword=' +
+      encodeURIComponent(keyword) +
+      '&offset=' +
+      offset;
+    window.history.pushState({ path: newURL }, '', newURL);
+  }
+
+  // Function to check and load search parameters from the URL
+  function loadSearchParams() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlKeyword = urlParams.get('keyword');
+    var urlOffset = urlParams.get('offset');
+
+    if (urlKeyword && urlOffset !== null) {
+      $('#search-keyword').val(urlKeyword);
+      offset = parseInt(urlOffset);
+      loadFaculty();
+    } else {
+      loadFaculty();
+    }
+  }
+
+  // Load search parameters on page load
+  loadSearchParams();
+})(jQuery);
